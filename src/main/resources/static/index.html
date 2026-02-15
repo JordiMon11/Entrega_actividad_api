@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html><body>
+<h1>Conflict Tracker</h1>
+<table border="1" id="t"></table>
+<script>
+fetch('/api/v1/conflicts').then(r=>r.json()).then(d=>{
+ let t=document.getElementById('t');
+ t.innerHTML='<tr><th>ID</th><th>Name</th><th>Status</th></tr>';
+ d.forEach(c=>{
+ t.innerHTML+=`<tr><td>${c.id}</td><td>${c.name}</td><td>${c.status}</td></tr>`;
+ });
+});
+</script>
+</body></html>
